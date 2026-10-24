@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Crawlers, please stay out of the vault.
+Disallow: /vault/
+
+# flag{r0b0ts_d0nt_k33p_s3cr3ts}
