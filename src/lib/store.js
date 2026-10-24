@@ -23,13 +23,18 @@ const readSession = (key) => {
   }
 }
 
+// Stored values can be edited by anyone, so only accept the shapes the app expects.
+const MODES = ['recruiter', 'engineer', 'visitor']
+const validMode = (m) => (MODES.includes(m) ? m : null)
+const validFlags = (f) => (Array.isArray(f) ? [...new Set(f.filter((i) => Number.isInteger(i) && i >= 0 && i < 5))] : [])
+
 let state = {
-  mode: readSession('clearance'), // 'recruiter' | 'engineer' | 'visitor' | null
+  mode: validMode(readSession('clearance')),
   booted: false,
-  sound: read('sound', false),
+  sound: read('sound', false) === true,
   unlocked: [], // section ids that have been decrypted
   active: 'hero',
-  flags: read('flags', []), // indexes of captured flags
+  flags: validFlags(read('flags', [])), // indexes of captured flags
   toast: null, // { id, title, text }
   terminal: false,
 }

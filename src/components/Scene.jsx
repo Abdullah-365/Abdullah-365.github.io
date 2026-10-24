@@ -14,17 +14,29 @@ const AMBER = new THREE.Color('#FFC857')
 const damp = THREE.MathUtils.damp
 
 // 4x4 atlas of hex glyphs that every particle samples from.
-function makeAtlas() {
-  const c = document.createElement('canvas')
-  c.width = c.height = 256
+const ATLAS_FONT = '600 46px "JetBrains Mono", ui-monospace, monospace'
+
+function drawAtlas(c) {
   const g = c.getContext('2d')
+  g.clearRect(0, 0, c.width, c.height)
   g.fillStyle = '#fff'
-  g.font = '600 46px "JetBrains Mono", ui-monospace, monospace'
+  g.font = ATLAS_FONT
   g.textAlign = 'center'
   g.textBaseline = 'middle'
   '0123456789ABCDEF'.split('').forEach((ch, i) => g.fillText(ch, (i % 4) * 64 + 32, Math.floor(i / 4) * 64 + 34))
+}
+
+function makeAtlas() {
+  const c = document.createElement('canvas')
+  c.width = c.height = 256
+  drawAtlas(c)
   const t = new THREE.CanvasTexture(c)
   t.minFilter = THREE.LinearMipmapLinearFilter
+  // Redraw once the bundled font has loaded, so the glyphs use it instead of a fallback.
+  document.fonts?.load(ATLAS_FONT).then(() => {
+    drawAtlas(c)
+    t.needsUpdate = true
+  })
   return t
 }
 

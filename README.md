@@ -9,8 +9,9 @@ My portfolio. It starts encrypted: visitors complete a TLS-style handshake, pick
 - **3D cipher core:** a custom GLSL shader renders every particle as a hex glyph. Glyphs morph from a scattered ciphertext cloud into a sphere, bulge toward the cursor and glitch when you scroll fast. Built with React Three Fiber, with bloom post-processing.
 - **Clearance levels:** Recruiter gets a 30-second brief, Engineer gets expanded technical details, and Visitor gets the default tour.
 - **Sections that decrypt themselves:** each section shows a decrypt bar as it scrolls into view. Experience is a SIEM event log, education is a certificate chain, skills are an `nmap` scan.
-- **Hidden CTF:** five flags are hidden across the site. Submit them in the terminal (bottom right, or press `` ` ``). Only SHA-256 hashes of the flags ship in the bundle.
+- **Hidden CTF:** five flags are hidden across the site. Submit them in the terminal (bottom right, or press `` ` ``). Submissions are checked against SHA-256 hashes, so the bundle has no answer list.
 - **Considerate:** honours `prefers-reduced-motion`, lighter scene on phones and slower GPUs, sound is off by default, no trackers, no cookies.
+- **Locked down:** a Content Security Policy that only allows the site's own scripts, fonts bundled with the site (no third-party requests), validated browser storage, and Dependabot for dependency updates.
 
 ## Editing content
 

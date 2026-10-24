@@ -1,7 +1,8 @@
 import { store } from './store'
 import { sfx } from './sound'
 
-// Only SHA-256 hashes ship in the bundle, so the flags can't be read out of the JavaScript.
+// The checker compares SHA-256 hashes, so there's no list of answers in the bundle.
+// (Flags 2 and 4 do ship base64-encoded, because the page has to reveal them.)
 export const FLAGS = [
   { hash: '29aa13910b32e988ab385623ecb46122ba0bb3466cd2bc0fbfbf330e5288f674', name: 'source', hint: 'Every page has a source. Read it.' },
   { hash: '1ed3fe384269c9ba6af0302ced8a074ae94ce0d97bc72e3b851c4215e5f4d88c', name: 'console', hint: 'Developers talk to the console. Some of them speak base64.' },
@@ -17,7 +18,9 @@ async function sha256(text) {
 
 // Returns { ok, index, already, all }.
 export async function submitFlag(raw) {
-  const hash = await sha256(raw.trim())
+  // crypto.subtle only exists on HTTPS and localhost.
+  if (!globalThis.crypto?.subtle) return { ok: false }
+  const hash = await sha256(raw.trim().slice(0, 200))
   const index = FLAGS.findIndex((f) => f.hash === hash)
   const { flags, sound } = store.get()
   if (index === -1) {
