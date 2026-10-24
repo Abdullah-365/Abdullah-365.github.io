@@ -2,7 +2,7 @@
 
 My portfolio. It starts encrypted: visitors complete a TLS-style handshake, pick a clearance level, and the site decrypts around a 3D core made of ~4,000 hex glyphs.
 
-**Live:** https://abdullah-365.github.io
+**Live:** https://abdullah1.dev
 
 ## Features
 
