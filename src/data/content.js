@@ -17,7 +17,7 @@ export const profile = {
   ],
   stats: [
     { value: '05/08', label: 'semester' },
-    { value: '13', label: 'labs and projects' },
+    { value: '12', label: 'labs and projects' },
     { value: '3', label: 'roles' },
     { value: 'VP', label: 'Cyber Cafe Club' },
   ],
@@ -115,18 +115,6 @@ export const projects = [
       'Co-authored assessment reports with prioritized mitigations and a proposed vulnerability management program.',
     ],
     featured: true,
-  },
-  {
-    id: 'bandit',
-    code: 'CTF',
-    term: 'Open source',
-    title: 'OverTheWire Bandit write-ups',
-    oneLiner: 'Documented write-ups for Bandit levels 0 to 30: goal, approach, commands, evidence and lessons learned.',
-    tags: ['Linux', 'Bash', 'CTF'],
-    details: [
-      'Each level records the goal, an explanation, the commands used, output and evidence, and what I learned.',
-    ],
-    link: 'https://github.com/Abdullah-365/Bandit-CTF',
   },
   {
     id: 'ris440',
