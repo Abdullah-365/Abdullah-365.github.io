@@ -41,7 +41,7 @@ export const projects = [
     tags: ['TypeScript', 'React', 'Cloudflare Workers', 'Email security', 'Threat intel'],
     details: [
       "Paste an email's source or drop the file (.eml or Outlook .msg) to get a verdict with plain-English reasons. Its X-ray lens shows the real sender, where each link really goes and hidden trackers.",
-      'A TypeScript engine combines provider spam verdicts, SPF/DKIM/DMARC, sender and link forensics, attachment inspection (PDFs, archives, macros, HTML) and scam wording in seven languages. On real phishing it never saw while being tuned, it catches 90.6%, with 0.7% false positives on legitimate mail.',
+      'A TypeScript engine combines provider spam verdicts, SPF/DKIM/DMARC, sender and link forensics, attachment inspection (PDFs, archives, macros, HTML) and scam wording in seven languages. On real phishing it never saw while being tuned, it catches 90.8%, with 0.7% false positives on legitimate mail.',
       'The email never leaves the browser. Its DKIM signatures are verified there against keys from DNS (RSA and Ed25519), so a forged "pass" header is caught. Other online checks (domain age, OpenPhish, URLhaus, MalwareBazaar) run on a Cloudflare Worker with a strict CSP and no request logs.',
     ],
     link: 'https://phish.abdullah1.dev',
