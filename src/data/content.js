@@ -17,7 +17,7 @@ export const profile = {
   ],
   stats: [
     { value: '05/08', label: 'semester' },
-    { value: '12', label: 'labs and projects' },
+    { value: '13', label: 'labs and projects' },
     { value: '3', label: 'roles' },
     { value: 'VP', label: 'Cyber Cafe Club' },
   ],
@@ -32,6 +32,23 @@ export const brief = [
 ]
 
 export const projects = [
+  {
+    id: 'phish-check',
+    code: 'TOOL',
+    term: 'Personal project · 2026',
+    title: 'phish-check: phishing email triage',
+    oneLiner: 'A live web tool that takes a suspicious email apart and shows who really sent it, where its links go and what it hides.',
+    tags: ['TypeScript', 'React', 'Cloudflare Workers', 'Email security', 'Threat intel'],
+    details: [
+      "Paste an email's source or drop the file (.eml or Outlook .msg) to get a verdict with plain-English reasons. Its X-ray lens shows the real sender, where each link really goes and hidden trackers.",
+      'A TypeScript engine combines provider spam verdicts, SPF/DKIM/DMARC, sender and link forensics, attachment inspection (PDFs, archives, macros, HTML) and scam wording in seven languages. On real phishing it never saw while being tuned, it catches 90.6%, with 0.7% false positives on legitimate mail.',
+      'The email never leaves the browser. Optional online checks run on a Cloudflare Worker (domain age, DNS, OpenPhish, URLhaus, MalwareBazaar) behind a strict CSP, with no request logs.',
+    ],
+    link: 'https://phish.abdullah1.dev',
+    badge: 'live',
+    linkLabel: 'Open the live tool',
+    featured: true,
+  },
   {
     id: 'spr500',
     code: 'SPR500',

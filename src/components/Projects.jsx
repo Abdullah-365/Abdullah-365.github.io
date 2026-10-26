@@ -11,7 +11,7 @@ function Card({ p, i, onOpen, expanded }) {
       <div className="card-head mono">
         <span className="tag">{p.code}</span>
         <span className="dim">{p.term}</span>
-        {p.link && <span className="card-live">● public repo</span>}
+        {p.link && <span className="card-live">● {p.badge ?? 'public repo'}</span>}
       </div>
       <DecryptText as="h3" text={p.title} className="card-title" />
       <p className="card-line">{p.oneLiner}</p>
@@ -69,7 +69,7 @@ function ProjectDialog({ project, onClose }) {
           </ul>
           {project.link && (
             <a className="btn btn-primary" href={project.link} target="_blank" rel="noreferrer">
-              View on GitHub
+              {project.linkLabel ?? 'View on GitHub'}
             </a>
           )}
         </div>
