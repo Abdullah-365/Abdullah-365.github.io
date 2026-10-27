@@ -30,7 +30,9 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 html.is-locked,
-html.is-locked body {
+html.is-locked body,
+html:has(dialog[open]),
+html:has(dialog[open]) body {
   overflow: hidden;
 }
 
@@ -950,10 +952,17 @@ button {
   text-align: right;
 }
 
+/* .panel sets position: relative, which would drop the modal to the top of the page
+   instead of the screen (off-screen on phones), so pin it to the viewport explicitly. */
 .dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  height: fit-content;
   width: min(720px, calc(100vw - 32px));
-  max-height: calc(100vh - 48px);
+  max-height: calc(100dvh - 48px);
   overflow: hidden auto;
+  overscroll-behavior: contain;
   padding: 0;
   color: var(--text);
   background: var(--panel-solid);
